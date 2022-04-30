@@ -6,32 +6,32 @@ import './styles.css';
     window.location.reload();
   } */
 
-export default function Weather({ weatherData }) {
+export default function Weather({ data }) {
 
     return (
         <div className="main">
 
-      <p className="header">{weatherData.city.name}</p>
+      <p className="header">{data.timezone}</p>
       
       <div className="flex">
         <p className="day">{moment().format('dddd')}, <span>{moment().format('LL')}</span></p>
-        <p className="description">{weatherData.list[0].weather[0].description}</p>
+        <p className="description">{data.current.weather[0].main}</p>
       </div>
 
       <div className="flex">
-        <p className="temp">Temperature: {weatherData.list[0].main.temp} &deg;C</p>
-        <p className="temp">Feels like: {weatherData.list[0].main.feels_like} &deg;C</p>
+        <p className="temp">Temperature: {data.current.temp.toFixed()}°</p>
+        <p className="temp">Feels like: {data.current.feels_like.toFixed()}°</p>
         
       </div>
 
       <div className="flex">
-        <p className="temp">Wind speed: {weatherData.list[0].wind.speed} m/s</p>
-        <p className="temp">Humidity: {weatherData.list[0].main.humidity} %</p>
+        <p className="temp">Wind speed: {data.current.wind_speed.toFixed()} m/s</p>
+        <p className="temp">Humidity: {data.current.humidity}%</p>
       </div>
 
       <div className="flex">
-        <p className="sunrise-sunset">Sunrise: {new Date(weatherData.city.sunrise * 1000).toLocaleTimeString('en-IN')}</p>
-        <p className="sunrise-sunset">Sunset: {new Date(weatherData.city.sunset * 1000).toLocaleTimeString('en-IN')}</p>
+        <p className="sunrise-sunset">Sunrise: {new Date(data.current.sunrise * 1000).toLocaleTimeString('en-IN')}</p>
+        <p className="sunrise-sunset">Sunset: {new Date(data.current.sunset * 1000).toLocaleTimeString('en-IN')}</p>
       </div>
     
   </div>

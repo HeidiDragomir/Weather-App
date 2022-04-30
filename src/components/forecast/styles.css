@@ -1,0 +1,14 @@
+.container-hourly, .container-daily {
+    display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.container-hourly {
+  background-color: aqua;
+}
+
+.container-daily {
+  background-color:lightcoral;
+}
