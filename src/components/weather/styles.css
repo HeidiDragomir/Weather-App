@@ -1,56 +1,84 @@
 @import url('https://fonts.googleapis.com/css2?family=Recursive&display=swap');
 
-.main{
+.container-main {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    padding: 5em;
+    gap: 5em;
+}
+
+.weather {
     width: 700px;
     border-radius: 15px;
-    background-color: #01579b;
+    background-color: hsla(237, 52%, 42%, 0.7);
 }
 
-.header{
-    background-color: #424242;
+.header {
+    background-color: hsla(237, 60%, 34%, 0.899);
     color: whitesmoke;
-    padding: 10px;
-    font-size: 28px;
+    padding: .5em;
+    font-size: 2rem;
     border-radius: 15px;
     font-family: 'Recursive', sans-serif;
 }
 
-.day{
-    padding: 15px;
-    color: whitesmoke;
-    font-family: 'Recursive', sans-serif;
-    font-size: 24px;
-    font-weight: 600;
-}
-
-.temp{
-    padding: 15px;
-    color: whitesmoke;
-    font-family: 'Recursive', sans-serif;
-    font-size: 18px;
-}
-
-.flex{
+.flex {
     display: flex;
     justify-content: space-between;
 }
 
-.sunrise-sunset{
-    padding: 15px;
+.day {
+    padding: 1em;
     color: whitesmoke;
     font-family: 'Recursive', sans-serif;
-    font-size: 16px;
-}
-
-.description{
-    padding: 15px;
-    color: whitesmoke;
-    font-family: 'Recursive', sans-serif;
-    font-size: 24px;
+    font-size: 1.6rem;
     font-weight: 600;
 }
 
-.button{
-    width: 35px;
-    height: 35px;
+.description {
+    padding: 1em;
+    color: whitesmoke;
+    font-family: 'Recursive', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.temp {
+    padding: .6em;
+    color: whitesmoke;
+    font-family: 'Recursive', sans-serif;
+    font-size: 1.2rem;
+}
+
+.temp>span,
+.sunrise-sunset>span {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.sunrise-sunset {
+    padding: .6em;
+    color: whitesmoke;
+    font-family: 'Recursive', sans-serif;
+    font-size: 1.2rem;
+}
+
+.buttons {
+    font-size: 2.5rem;
+    display: flex;
+    align-items: flex-start;
+}
+
+.info {
+    background: none;
+    font-weight: 600;
+    color: hsla(239, 77%, 19%, 0.757);
+    border: none;
+    cursor: pointer;
+}
+
+.info:hover {
+    font-size: 2.8rem;
+    font-weight: 700;
 }
