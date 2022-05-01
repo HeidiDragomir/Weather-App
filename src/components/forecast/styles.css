@@ -1,14 +1,39 @@
-.container-hourly, .container-daily {
-    display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+.container-hourly,
+.container-daily {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
   text-align: center;
-}
-
-.container-hourly {
-  background-color: aqua;
+  gap: 3rem;
+  margin: 5em;
 }
 
 .container-daily {
-  background-color:lightcoral;
+  margin-bottom: 0;
+  padding-bottom: 5em;
+}
+
+.card-wrapper {
+  background: hsla(0, 0%, 80%, .700);
+  border-radius: 15px;
+  padding: 1rem;
+  width: 12rem;
+}
+
+.time {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.info-main {
+  font-weight: 600;
+}
+
+.info-forecast {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.info-forecast-temp {
+  font-size: 2rem;
 }
