@@ -17,7 +17,7 @@ function App() {
     const getPosition = async () => {
 
       if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
+      navigator.geolocation.getCurrentPosition(position => {
         setLat(position.coords.latitude);
         setLong(position.coords.longitude);
         let finalUrl = `${process.env.REACT_APP_API_URL}lat=${lat}&lon=${long}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`;
