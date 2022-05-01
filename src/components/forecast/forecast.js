@@ -3,7 +3,7 @@ import "./styles.css";
 
 export default function forecast({ data }) {
 
-  function weatherHourly() {
+  const weatherHourly = () => {
     let hourly = [];
     data.hourly.forEach((item, index) => {
       if (index % 3 === 0 && hourly.length < 5) {
@@ -22,7 +22,7 @@ export default function forecast({ data }) {
     return hourly
   }
 
-  function weatherDaily() {
+  const weatherDaily = () => {
     let daily = [];
     data.daily.forEach((item) => {
       if (daily.length < 6) {
