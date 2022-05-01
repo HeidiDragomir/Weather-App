@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import './App.css';
+import "./App.css";
 import axios from "axios";
-import Weather from './components/weather/weather';
-import Forecast from './components/forecast/forecast';
+import Weather from "./components/weather/weather";
+import Forecast from "./components/forecast/forecast";
 
 
 function App() {
@@ -51,7 +51,7 @@ function App() {
   }, [lat, long, units])
 
   return (
-    <div className='App'>
+    <div className="App">
       {data && (
         <>
           <Weather
