@@ -7,61 +7,65 @@ import Forecast from './components/forecast/forecast';
 
 function App() {
 
-
   const [lat, setLat] = useState([]);
   const [long, setLong] = useState([]);
   const [data, setData] = useState(null);
-  
+  const [units, setUnits] = useState("metric");
+  const metric = (e) => {
+    setUnits("metric");
+  };
+  const imperial = (e) => {
+    setUnits("imperial");
+  };
+
   useEffect(() => {
 
     const getPosition = async () => {
 
       if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(position => {
-        setLat(position.coords.latitude);
-        setLong(position.coords.longitude);
-        let finalUrl = `${process.env.REACT_APP_API_URL}lat=${lat}&lon=${long}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`;
-
-        getWeather(finalUrl);
-      });}
+        navigator.geolocation.getCurrentPosition(position => {
+          setLat(position.coords.latitude);
+          setLong(position.coords.longitude);
+          let apiUrl = `${process.env.REACT_APP_API_URL}lat=${lat}&lon=${long}&units=${units}&APPID=${process.env.REACT_APP_API_KEY}`;
+          getWeather(apiUrl);
+        });
+      }
 
       else {
-        return alert("Need position to work!")
+        return alert("You need to let the app use your location!")
       }
 
-      async function getWeather(url) {
-        try {
-          const response = await axios.get(url);
-          setData(response.data);
-        } catch {
-          console.log("error");
-        }
+    }
+
+    const getWeather = async (url) => {
+      try {
+        const response = await axios.get(url);
+        setData(response.data);
+      } catch {
+        console.log("error");
       }
     }
-    getPosition();
-    
-  }, [lat, long])
 
-  
+    getPosition();
+
+  }, [lat, long, units])
 
   return (
     <div className='App'>
-    {data && (
+      {data && (
         <>
-        <Weather
-
-          data={data} />
-        <Forecast
-
+          <Weather
+            metric={metric}
+            imperial={imperial}
             data={data} />
-            </>
+          <Forecast
+            metric={metric}
+            imperial={imperial}
+            data={data} />
+        </>
       )}
     </div>
   );
-
-
-
-
 }
 
 export default App;
