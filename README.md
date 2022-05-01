@@ -1,3 +1,10 @@
+# Weather App
+
+This app was created with React and [OpenWeather API](https://openweathermap.org/api/one-call-api).\
+Live version: https://weather-app-hd.netlify.app/
+
+<br>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
