@@ -2,40 +2,44 @@ import React from 'react';
 import moment from 'moment';
 import './styles.css';
 
-/* const refresh = () => {
-    window.location.reload();
-  } */
 
-export default function Weather({ data }) {
+export default function Weather({ data, metric, imperial }) {
 
-    return (
-        <div className="main">
+  return (
 
-      <p className="header">{data.timezone}</p>
-      
-      <div className="flex">
-        <p className="day">{moment().format('dddd')}, <span>{moment().format('LL')}</span></p>
-        <p className="description">{data.current.weather[0].main}</p>
+    <div className='container-main'>
+
+      <div className="weather">
+        <p className="header">{data.timezone}</p>
+
+        <div className="flex">
+          <p className="day">{moment().format('dddd')}, <span>{moment().format('LL')}</span></p>
+          <p className="description">{data.current.weather[0].main}</p>
+        </div>
+
+        <div className="flex">
+          <p className="temp">Temperature: <span>{data.current.temp.toFixed()}°</span></p>
+          <p className="temp">Feels like: <span>{data.current.feels_like.toFixed()}°</span></p>
+        </div>
+
+        <div className="flex">
+          <p className="temp">Wind speed: <span>{data.current.wind_speed.toFixed()} m/s</span></p>
+          <p className="temp">Humidity: <span>{data.current.humidity} %</span></p>
+        </div>
+
+        <div className="flex">
+          <p className="sunrise-sunset">Sunrise: <span>{new Date(data.current.sunrise * 1000).toLocaleTimeString('en-IN')}</span></p>
+          <p className="sunrise-sunset">Sunset: <span>{new Date(data.current.sunset * 1000).toLocaleTimeString('en-IN')}</span></p>
+        </div>
+
       </div>
 
-      <div className="flex">
-        <p className="temp">Temperature: {data.current.temp.toFixed()}°</p>
-        <p className="temp">Feels like: {data.current.feels_like.toFixed()}°</p>
-        
+      <div className='buttons'>
+        <button className="info outline text-tiny" onClick={metric}>&deg;C</button>
+        <span> / </span>
+        <button className="info outline text-tiny" onClick={imperial}>°F</button>
       </div>
 
-      <div className="flex">
-        <p className="temp">Wind speed: {data.current.wind_speed.toFixed()} m/s</p>
-        <p className="temp">Humidity: {data.current.humidity}%</p>
-      </div>
-
-      <div className="flex">
-        <p className="sunrise-sunset">Sunrise: {new Date(data.current.sunrise * 1000).toLocaleTimeString('en-IN')}</p>
-        <p className="sunrise-sunset">Sunset: {new Date(data.current.sunset * 1000).toLocaleTimeString('en-IN')}</p>
-      </div>
-    
-  </div>
-    )
+    </div>
+  )
 }
-
-//<button className="button"  onClick={refresh} />//
