@@ -3,6 +3,8 @@
 This app was created with React and [OpenWeather API](https://openweathermap.org/api/one-call-api).\
 Live version: https://weather-app-hd.netlify.app/
 
+<img src="https://raw.githubusercontent.com/HeidiDragomir/DoggyMatch-MERN-App-frontend/main/src/assets/img/DoggyMatch.jpg" style="width: auto; height: auto; border-radius: 10px">
+
 <br>
 
 # Getting Started with Create React App
